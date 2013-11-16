@@ -13,7 +13,6 @@ Contents:
 
    README.rst
    docs/SphinxExtensions
-   docs/GitHub/GitHubProject
    docs/GitHub/CreateRepo
    docs/GitHub/GitTags
 

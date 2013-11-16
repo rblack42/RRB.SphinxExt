@@ -66,7 +66,7 @@ project directory. We will use this file to exclude certain files and
 directories from the GitHub_ repository we will be setting up. Here is my
 initial file:
 
-..  literalinclude::    .gitignote
+..  literalinclude::    /.gitignore
 
 As you can see, I am not going to put my virtual environment in the repo! I
 also add a few standard things here, since I use them a lot. For instance, I
@@ -84,7 +84,7 @@ We set up this project directory as a Git_ repository by doing this:
 
 This creates a new, empty, reposotory . There are not files being managed at this point. We can see what Git_ thinks of all this by checking the current status:
 
-..  code-block:: etxt
+..  code-block:: text
 
     git status
     # On branch master
@@ -106,7 +106,7 @@ This creates a new, empty, reposotory . There are not files being managed at thi
 
 We need to add all the project files to the Git_ project. We do this in two steps:
 
-..  gode-block::    text
+..  code-block::    text
 
     git add .
     git add .gitignore
@@ -159,7 +159,8 @@ browser, and potentially clones by interested developers!
 Create the repo on GitHub
 -------------------------
 
-We again create a new project on GitHub_ as we did earlier. Once this has been done, we tell our current project that it will live on the server as follows:
+We again create a new project on GitHub_ as we did earlier. Once this has been
+done, we tell our current project that it will live on the server as follows:
 
 ..  code-block:: text
 
@@ -171,4 +172,28 @@ We again create a new project on GitHub_ as we did earlier. Once this has been d
     GitHub_ adds the ``.git`` extension to repositories it manages. Be sure to
     add this when you add the remote.
 
+Adding credentials to your system
+---------------------------------
+
+If you followed the instructions above on a new machine, odds are that you were asked for your user name and passord to access your GitHub_ account. We cna streamline this process by doing a bit of additional setup.
+
+On the Mac, we need to add a GitHub_ ``credential-osxkeychain`` helper app.
+This manages requests for credentials from GitHub to this machine.
+
+On the Mac, check that you have the required tool installed:
+
+..  code-block:: text
+
+    git credential-osxkeychain
+    Usage: git credential-osxkeychanin <get|store|erase>
+
+Add credentials as follows:
+
+..  code-block:: text
+
+    git config --global credential.helper osxkeychain
+
+Once this has been done, the credentials will be stored in the keychanin
+manager on your system, and delivered to GitHUb any time they are needed. This
+will hapen the first time you access the GitHub_ server.
 
